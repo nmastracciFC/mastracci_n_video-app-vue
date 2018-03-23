@@ -13,6 +13,7 @@ const myApp = {
 		},
 		//this changes the syntax for what vue is looking at for it's binding 
 		//because if we dont set it then it will compete with handlebars
+		//now backend stuff will be shown with express and front end can go with vue
 		delimiters: ['${','}']
 
 	})
