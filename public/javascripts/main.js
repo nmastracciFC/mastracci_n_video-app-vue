@@ -5,7 +5,7 @@ const myApp = {
 		genres.forEach((genre, index) =>{
 			myApp.vm.genres.push({
 				name: genre,
-				movies: data.filter(movie => movie.genre_name === genre);
+				movies: data.filter(movie => movie.genre_name === genre)
 			})
 		})
 	},
@@ -27,3 +27,6 @@ const myApp = {
 
 	})
 }
+
+myApp.movieGenres(appData.movies, ["Family", "Action", "Fantasy"]);
+//now there is an array of genres available for these genres

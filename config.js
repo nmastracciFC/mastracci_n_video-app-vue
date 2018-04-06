@@ -3,7 +3,7 @@ var config = {
 	password: "root",
 	port:8889,
 	host: "localhost",
-	database: "db_tvr_movies",
+	database: "db_tvr_movies_2",
 
 	// kidsmode: false
 

@@ -6,10 +6,25 @@
 				<i class="movie-genre">{{defaultMovie.genre_name}}</i>
 			</aside>
 		<video autoplay controls>
-			
-			
 			<source src="videos/{{ defaultMovie.movies_trailer }}" type="video/mp4">
 		</video>
 	</div>
+
+	<!-- load all of the thumbnails for each genre with vue!-->
+	<section class="genre-lists" v-for="genre in genres">
+		<div v-if="genre.movies.length > 0">
+			<div class="genre-item">
+				<h6 class="genre-name">${genre.name}</h6>
+				<div class="movie-list" v-for="movie in genre.movies">
+					<a :href="'/movies/'+movie.movies_id+'/'+movie.movies_trailer">
+						<img class="movie-thumb" :src="'images/'+movie.movies_cover" :alt="movie.movies_title">
+					</a>
+				</div>
+			</div>
+
+		</div>
+		
+	</section>
+
 </section>
 

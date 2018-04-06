@@ -24,4 +24,20 @@ router.get('/', function(req, res, next) {
   
 });
 
+router.get('/movies/:id/:movie', (req, res) => {
+	console.log(req.params.id, req.params.movie);
+	connect.query(`SELECT * FROM tbl_comments WHERE comments_movie = "${req.params.id}"`, (err, rows) => {
+		if (err) {
+			console.log(err);
+		}else {
+			console.log(rows);
+			res.render('moviespage', {
+				movie: req.params.id,
+				moviesrc: req.params.movie,
+				data: JSON.stringify(rows)
+			});
+		}
+	});
+})
+
 module.exports = router;
