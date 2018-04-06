@@ -12,14 +12,33 @@ var myVideoApp = {
 		el: '#video',
 		data: {
 			reviews: [],
-			numstars: 3,
+			numStars: 3,
 			review: ''
 
 		},
 		methods: {
-			addReview: function() {
-
-			}
+			addReview() {
+				let movieId = document.querySelector('.movId').textContent;
+				fetch('/api', {
+					method: 'post',
+					headers: {
+						'Accept': 'applications/json, text-plain, */*',
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						id:movieId,
+						stars: this.numStars,
+						comment: this.review
+					})
+					})
+					.then((resp) => resp.json())
+					.then((data) => {
+						console.log(data);
+					})
+					.catch((error) =>{
+						console.log(error);
+					});
+				}
 		}
 		
 	})
