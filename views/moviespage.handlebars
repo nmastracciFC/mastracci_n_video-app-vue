@@ -7,7 +7,13 @@
 		<source src="/videos/{{moviesrc}}" type="video/mp4">
 	</video>
 
-	<article>
+	<article class="comments" v-if="reviews.length > 0">
+		<dir v-for="review in reviews" :key="review.id">
+			<i class="post-date">${review.comments_date}</i>
+			<p>
+				${review.comments_copy}
+			</p>
+		</dir>
 		
 	</article>
 </section>

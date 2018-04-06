@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 				//display the movie
 				data: JSON.stringify(rows),
 				mainpage: true,
-				videopage: false
+				moviespage: false
 			});
 
 		}//else end bracket
@@ -38,7 +38,7 @@ router.get('/movies/:id/:movie', (req, res) => {
 				moviesrc: req.params.movie,
 				data: JSON.stringify(rows),
 				mainpage: false,
-				videopage: true
+				moviespage: true
 			});
 		}
 	});
