@@ -16,7 +16,9 @@ router.get('/', function(req, res, next) {
 				defaultMovie : rows[Math.floor(Math.random() * rows.length)], 
 				//take the length of the movies array and choose a random number in there
 				//display the movie
-				data: JSON.stringify(rows)
+				data: JSON.stringify(rows),
+				mainpage: true,
+				videopage: false
 			});
 
 		}//else end bracket
@@ -34,7 +36,9 @@ router.get('/movies/:id/:movie', (req, res) => {
 			res.render('moviespage', {
 				movie: req.params.id,
 				moviesrc: req.params.movie,
-				data: JSON.stringify(rows)
+				data: JSON.stringify(rows),
+				mainpage: false,
+				videopage: true
 			});
 		}
 	});
