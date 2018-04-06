@@ -11,10 +11,15 @@ var myVideoApp = {
 		delimiters: ['${','}'],
 		el: '#video',
 		data: {
-			reviews: []
+			reviews: [],
+			numstars: 3,
+			review: ''
+
 		},
 		methods: {
+			addReview: function() {
 
+			}
 		}
 		
 	})

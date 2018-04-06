@@ -16,4 +16,15 @@
 		</dir>
 		
 	</article>
+
+	<aside class="add-comment">
+		<!-- add our own reviews -->
+		<h4 class="review-heading">Add a Review</h4>
+		<span class="hidden movId">{{movie}}</span>
+		<input type="range" name="myRange" id="myRange" min="0" max="5" step="1" v-model="numStars">
+		<label for="myRange">${numStars} -Star Review</label>
+		<textarea name="review" id="review" placeholder="What did you think?" v-model="review"></textarea>
+		<input type="submit" name="submit" value="Submit Your Review" v-on:click="addReview">
+
+	</aside>
 </section>
