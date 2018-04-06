@@ -1,12 +1,21 @@
 const myApp = {
 
 	//all non-vue functionality goes here
+	movieGenres(data, genres) {
+		genres.forEach((genre, index) =>{
+			myApp.vm.genres.push({
+				name: genre,
+				movies: data.filter(movie => movie.genre_name === genre);
+			})
+		})
+	},
 
 
 	 vm: new Vue({
 		el: "#app",
 		data: {
-			message: "Welcome to the Newflix"
+			message: "Welcome to the Newflix",
+			genres: []//populated from the function at the top
 		},
 		methods: {
 

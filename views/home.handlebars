@@ -1,7 +1,13 @@
 <section id="app">
 	<div class="movie-wrapper">
+		<aside>
+				<h4 class="movie-title">{{defaultMovie.movies_title}}</h4>
+				<span class="movie-year">{{ defaultMovie.movies_year }} &nbsp;&bull;&nbsp; {{defaultMovie.movies_runtime}}</span>
+				<i class="movie-genre">{{defaultMovie.genre_name}}</i>
+			</aside>
 		<video autoplay controls>
-			<!--  -->
+			
+			
 			<source src="videos/{{ defaultMovie.movies_trailer }}" type="video/mp4">
 		</video>
 	</div>
