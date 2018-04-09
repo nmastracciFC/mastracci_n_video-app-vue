@@ -3,28 +3,14 @@ var router = express.Router();
 var config = require('../config');
 var connect = require('../utils/sqlConnect');
 var bodyParser = require('body-parser');
-
+var videoController = require('../controllers/videoAppController');
 /* GET home page. */
-router.get('/', function(req, res, next) {
-	console.log('get all the movies');
-	connect.query(`SELECT * FROM tbl_movies m, tbl_genre g, tbl_mov_genre mg WHERE m.movies_id = mg.movies_id AND g.genre_id = mg.genre_id`, (error, rows) => {
-		if(error) {
-			console.log(error)
-		} else {
-			res.render('home', { 
-				message: 'Express',
-				defaultMovie : rows[Math.floor(Math.random() * rows.length)], 
-				//take the length of the movies array and choose a random number in there
-				//display the movie
-				data: JSON.stringify(rows),
-				mainpage: true,
-				moviespage: false
-			});
-
-		}//else end bracket
-	});//query end bracket
+// router.get('/', function(req, res, next) {
+	
   
-});
+// });
+/* GET home page. */
+router.get('/', videoController.get_all_movies );
 
 router.get('/movies/:id/:movie', (req, res) => {
 	console.log(req.params.id, req.params.movie);
