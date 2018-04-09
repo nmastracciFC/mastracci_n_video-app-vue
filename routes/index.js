@@ -12,22 +12,8 @@ var videoController = require('../controllers/videoAppController');
 /* GET home page. */
 router.get('/', videoController.get_all_movies );
 
-router.get('/movies/:id/:movie', (req, res) => {
-	console.log(req.params.id, req.params.movie);
-	connect.query(`SELECT * FROM tbl_comments WHERE comments_movie = "${req.params.id}"`, (err, rows) => {
-		if (err) {
-			console.log(err);
-		}else {
-			console.log(rows);
-			res.render('moviespage', {
-				movie: req.params.id,
-				moviesrc: req.params.movie,
-				data: JSON.stringify(rows),
-				mainpage: false,
-				moviespage: true
-			});
-		}
-	});
-})
+router.get('/movies/:id/:movie', videoController.get_one_movie );
+
+router.post('/api', videoController.get_api);
 
 module.exports = router;
