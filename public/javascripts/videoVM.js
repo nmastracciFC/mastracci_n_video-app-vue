@@ -19,25 +19,45 @@ var myVideoApp = {
 		methods: {
 			addReview() {
 				let movieId = document.querySelector('.movId').textContent;
-				fetch('/api', {
-					method: 'post',
-					headers: {
-						'Accept': 'applications/json, text-plain, */*',
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						id:movieId,
-						stars: this.numStars,
-						comment: this.review
-					})
-					})
-					.then((resp) => resp.json())
-					.then((data) => {
-						console.log(data);
-					})
-					.catch((error) =>{
-						console.log(error);
-					});
+				axios.post('/api', {
+					id:movieId,
+					stars: this.numStars,
+					comment: this.review
+				})
+				.then( response => {
+					console.log(response);
+				})
+				.catch( error => {
+					console.log(error);
+				});
+
+				//push into reviews array
+				this.reviews.push({
+					comments_copy:this.review,
+					comments_rating :this.numStars,
+					comments_date: `${new Date()}`
+				});
+				this.review = "";
+				this.numStars = 0;
+				// fetch('/api', {
+				// 	method: 'post',
+				// 	headers: {
+				// 		'Accept': 'applications/json, text-plain, */*',
+				// 		'Content-Type': 'application/json'
+				// 	},
+				// 	body: JSON.stringify({
+				// 		id:movieId,
+				// 		stars: this.numStars,
+				// 		comment: this.review
+				// 	})
+				// 	})
+				// 	.then((resp) => resp.json())
+				// 	.then((data) => {
+				// 		console.log(data);
+				// 	})
+				// 	.catch((error) =>{
+				// 		console.log(error);
+				// 	});
 				}
 		}
 		
