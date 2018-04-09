@@ -114,11 +114,11 @@ exports.post_new_review = (req,res) => {
 			}
 			// console.log(rows);
 
-			res.json(data);
+			res.json(rows);
 		})
 	})
 
-}
+};
 
 // console.log('post a review');
 // 	connect.query(`INSERT INTO tbl_comments (comments_id, comments_auth, comments_copy, comments_date, comments_movie, comments_rating) VALUES (NULL, NULL, "${req.body.comment}",  CURRENT_TIMESTAMP(),"${req.body.id}", "${req.body.stars}");`, (error, data) => {
